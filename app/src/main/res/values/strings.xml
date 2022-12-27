@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Adivina Numero Mayor Juego</string>
+    <string name="siguiente">Siguiente</string>
+    <string name="puntos_ganados_0">Puntos Ganados: 0</string>
+    <string name="puntos_perdidos_0">Puntos Perdidos: 0</string>
+    <string name="selecciona_uno_de_los_dos_cajones">Selecciona uno de los dos cajones</string>
+    <string name="adivina_el_numero_mayor">Adivina el numero mayor</string>
 </resources>
