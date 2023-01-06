@@ -1,4 +1,4 @@
-package com.example.adivinanumeromayorjuego
+package com.adivinanumeromayor.juego
 
 import org.junit.Test
 

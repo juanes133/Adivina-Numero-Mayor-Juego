@@ -5,4 +5,12 @@
     <string name="puntos_perdidos_0">Puntos Perdidos: 0</string>
     <string name="selecciona_uno_de_los_dos_cajones">Selecciona uno de los dos cajones</string>
     <string name="adivina_el_numero_mayor">Adivina el numero mayor</string>
+    <string name="interrogacion"><b>?</b></string>
+    <string name="felicidades_ganaste">Felicidades ganaste</string>
+    <string name="felicitaciones_ganaste">Felicitaciones ganaste :)</string>
+    <string name="ok">OK</string>
+    <string name="lo_siento_perdiste">Lo siento perdiste</string>
+    <string name="perdiste">Lo siento perdiste :(</string>
+    <string name="puntos_ganados">Puntos Ganados: </string>
+    <string name="puntos_perdidos">Puntos Perdidos: </string>
 </resources>

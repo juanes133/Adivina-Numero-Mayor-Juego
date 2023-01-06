@@ -1,14 +1,11 @@
-package com.example.adivinanumeromayorjuego
+package com.adivinanumeromayor.juego
 
 import android.annotation.SuppressLint
 import android.content.DialogInterface
-import android.content.res.Resources
 import android.os.Bundle
-import android.view.View
-import android.widget.Button
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.example.adivinanumeromayorjuego.databinding.ActivityMainBinding
+import com.adivinanumeromayor.juego.databinding.ActivityMainBinding
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -46,36 +43,55 @@ class MainActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
     private fun reviewAnswer(izq: Boolean) {
         binding.btnLeft.text = numLeft.toString()
+        binding.btnLeft.isEnabled = false
         binding.btnRight.text = numRight.toString()
+        binding.btnRight.isEnabled = false
         if (izq && numLeft > numRight || !izq && numLeft < numRight) {
             //Ganar puntos
             points++
             if (points >= 5) {
                 val builder = AlertDialog.Builder(this)
-                builder.setTitle("Felicidades ganaste")
-                builder.setMessage("Felicitaciones ganaste :) ")
-                builder.setPositiveButton("ok") { _: DialogInterface, _: Int -> }
+                builder.setTitle(getString(R.string.felicidades_ganaste))
+                builder.setMessage(getString(R.string.felicitaciones_ganaste))
+                builder.setPositiveButton(getString(R.string.ok)) { _: DialogInterface, _: Int ->
+                    restartPoints()
+                }
                 builder.show()
-                points = 0
-                lostPoints = 0
+                binding.btnLeft.isEnabled = true
+                binding.btnRight.isEnabled = true
+
             }
         } else {
             //Perder puntos
             lostPoints++
             if (lostPoints >= 5) {
                 val builder = AlertDialog.Builder(this)
-                builder.setTitle("Lo siento Perdiste")
-                builder.setMessage("Lo siento Perdiste :( ")
-                builder.setPositiveButton("ok") { _: DialogInterface, _: Int -> }
+                builder.setTitle(getString(R.string.lo_siento_perdiste))
+                builder.setMessage(getString(R.string.perdiste))
+                builder.setPositiveButton(getString(R.string.ok)) { _: DialogInterface, _: Int ->
+                    restartPoints()
+                }
                 builder.show()
-                lostPoints = 0
-                points = 0
+                binding.btnLeft.isEnabled = true
+                binding.btnRight.isEnabled = true
             }
         }
-        binding.textPointsEarned.text = "Puntos Ganados: $points"
-        binding.textLostPoints.text = "Puntos Perdidos: $lostPoints"
+        binding.textPointsEarned.text = "${getString(R.string.puntos_ganados)} $points"
+        binding.textLostPoints.text = "${getString(R.string.puntos_perdidos)} $lostPoints"
         binding.btnNext.setOnClickListener {
             randomNumberGenerator()
+            binding.btnLeft.isEnabled = true
+            binding.btnRight.isEnabled = true
         }
+    }
+
+    @SuppressLint("SetTextI18n")
+    private fun restartPoints() {
+        binding.btnLeft.text = "?"
+        binding.btnRight.text = "?"
+        points = 0
+        lostPoints = 0
+        binding.textPointsEarned.text = "${getString(R.string.puntos_ganados)} $points"
+        binding.textLostPoints.text = "${getString(R.string.puntos_perdidos)} $lostPoints"
     }
 }
