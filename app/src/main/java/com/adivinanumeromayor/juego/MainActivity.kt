@@ -33,8 +33,8 @@ class MainActivity : AppCompatActivity() {
         val random = Random()
         numLeft = random.nextInt(10)
         numRight = random.nextInt(10)
-        binding.btnLeft.text = "?"
-        binding.btnRight.text = "?"
+        binding.btnLeft.text = getString(R.string.interrogacion)
+        binding.btnRight.text = getString(R.string.interrogacion)
         if (numLeft == numRight) {
             randomNumberGenerator()
         }
@@ -87,8 +87,8 @@ class MainActivity : AppCompatActivity() {
 
     @SuppressLint("SetTextI18n")
     private fun restartPoints() {
-        binding.btnLeft.text = "?"
-        binding.btnRight.text = "?"
+        binding.btnLeft.text = getString(R.string.interrogacion)
+        binding.btnRight.text = getString(R.string.interrogacion)
         points = 0
         lostPoints = 0
         binding.textPointsEarned.text = "${getString(R.string.puntos_ganados)} $points"
